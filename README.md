@@ -1,5 +1,5 @@
 # Quora_Insincere_Questions_Classification
-A text classification task using Deep Learning
+A text classification task using Deep Learning.
 ## Analysis on data
 0 - sincere,  1 - insincere
 
