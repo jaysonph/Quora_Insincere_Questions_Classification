@@ -1,13 +1,6 @@
 import numpy as np
-import configparser
 from tqdm import tqdm
 
-# Load configuration values
-config = configparser.ConfigParser()
-config.read('config.ini')
-embed_size = int(config['config_values']['embed_size']) # how big is each word vector
-max_features = int(config['config_values']['max_features']) # how many unique words to use (i.e num rows in embedding vector)
-maxlen = int(config['config_values']['maxlen']) # max number of words in a question to use
 
 def load_glove(word_index):
     EMBEDDING_FILE = '../input/embeddings/glove.840B.300d/glove.840B.300d.txt'
