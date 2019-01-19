@@ -1,4 +1,14 @@
+import os
+import time
+import numpy as np
+import pandas as pd
 from sklearn.metrics import f1_score, roc_auc_score
+from sklearn.linear_model import LinearRegression
+from attention import *
+from preprocessing import *
+from load_wordemb import *
+from model import *
+
 
 def train_pred(model, epochs=2, callback=None):
     for e in range(epochs):
@@ -51,7 +61,6 @@ outputs.append([pred_val_y, pred_test_y, best_score, '2 LSTM w/ attention'])
 
 # Blending prediction results from different models
 outputs.sort(key=lambda x: x[2])
-from sklearn.linear_model import LinearRegression
 X = np.asarray([outputs[i][0] for i in range(len(outputs))])
 X = X[...,0]
 reg = LinearRegression().fit(X.T, val_y)
