@@ -2,12 +2,21 @@ import os
 import time
 import numpy as np
 import pandas as pd
+import configparser
 from sklearn.metrics import f1_score, roc_auc_score
 from sklearn.linear_model import LinearRegression
 from attention import *
 from preprocessing import *
 from load_wordemb import *
 from model import *
+
+
+# Load configuration values
+config = configparser.ConfigParser()
+config.read('config.ini')
+embed_size = int(config['config_values']['embed_size']) # how big is each word vector
+max_features = int(config['config_values']['max_features']) # how many unique words to use (i.e num rows in embedding vector)
+maxlen = int(config['config_values']['maxlen']) # max number of words in a question to use
 
 
 def train_pred(model, epochs=2, callback=None):
