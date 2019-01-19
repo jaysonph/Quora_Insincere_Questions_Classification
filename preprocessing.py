@@ -3,6 +3,7 @@ import pandas as pd
 import keras
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
+from sklearn.model_selection import StratifiedKFold
 
 
 # Function to convert to lowercase and standardize the format of all punction space
